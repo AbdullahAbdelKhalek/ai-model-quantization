@@ -268,7 +268,7 @@ quantized. GPT-2's token-embedding table (~39M params, ~158 MB in float32) is le
 precision on purpose, because quantizing it hurts quality for little gain. So the *block weights*
 drop ~8× (340 MB to ~43 MB), while the *total* drops ~2.4× because the untouched fp32 embeddings
 now dominate. Leaving embeddings and normalization layers at higher precision is exactly what
-production quantizers (bitsandbytes, QLoRA) do.
+production quantizers do.
 - **Speed vs. memory.** This is an educational, from-scratch implementation: weights are kept
 compressed in memory and decompressed on the fly inside each forward pass. That trades inference
 speed for clarity and low memory. Real systems use fused GPU kernels that decompress inside the
@@ -282,7 +282,7 @@ short passage is a coarse check. A 4-bit model can match it and still score meas
 harder work (multi-step reasoning, math, code, long context), because quantization nudges
 individual token predictions in ways a single averaged number hides. On easy text those nudges
 wash out; on a tricky reasoning chain, one flipped token can derail the answer. Stronger checks
-(task benchmarks like MMLU, GSM8K, HumanEval) usually reveal a small but real drop. The quality
+usually reveal a small but real drop. The quality
 cost is rarely zero, it's just easy to miss with a weak metric.
 - **So why don't large providers quantize everything to 4-bit?** Quantization pays off most when
 memory is the binding constraint, which is the case when running an open model on a single
