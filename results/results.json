@@ -1,0 +1,32 @@
+{
+  "1": {
+    "label": "fp32 baseline",
+    "memory_mb": 474.7,
+    "perplexity": 28.92
+  },
+  "2": {
+    "label": "float16",
+    "memory_mb": 312.7,
+    "perplexity": 28.92
+  },
+  "3": {
+    "label": "int8",
+    "memory_mb": 231.9,
+    "perplexity": 28.96
+  },
+  "4": {
+    "label": "4-bit uniform (naive)",
+    "memory_mb": 196.3,
+    "perplexity": 112.74
+  },
+  "5": {
+    "label": "NF4 (paper)",
+    "memory_mb": 196.3,
+    "perplexity": 28.94
+  },
+  "6": {
+    "label": "NF4 + double-quant",
+    "memory_mb": 192.5,
+    "perplexity": 29.05
+  }
+}

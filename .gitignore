@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Environment
+.env
+
+# Hugging Face / model caches
+.cache/
+*.bin
+*.safetensors
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
